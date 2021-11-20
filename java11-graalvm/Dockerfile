@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 LABEL       author="PanOkurka" maintainer="vedeni@atropol.net"
 
-ARG GRAALVM_URL=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.2.0/graalvm-ce-java11-linux-amd64-21.2.0.tar.gz
+ARG GRAALVM_URL=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.3.0/graalvm-ce-java11-linux-amd64-21.3.0.tar.gz
 ENV DEBIAN_FRONTEND=noninteractive 
 COPY slim-java* /usr/local/bin/
 
