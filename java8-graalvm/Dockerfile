@@ -1,6 +1,6 @@
-FROM ubuntu:20.04
+FROM --platform=$TARGETOS/$TARGETARCH openjdk:8-slim
 
-LABEL       author="PanOkurka" maintainer="vedeni@atropol.net"
+LABEL       author="PanOkurka" maintainer="okurka@baby-cucumber.com"
 
 ARG GRAALVM_URL=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.2.0/graalvm-ce-java8-linux-amd64-21.2.0.tar.gz
 ENV DEBIAN_FRONTEND=noninteractive 
@@ -10,7 +10,7 @@ ENV JAVA_HOME /jdk
 ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN apt-get update -y \
-  && apt-get install -y --no-install-recommends binutils curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 \
+  && apt-get install -y --no-install-recommends binutils curl ca-certificates openssl git tar sqlite3 fontconfig tzdata iproute2 \
   && useradd -d /home/container -m container \
   && mkdir /jdk && curl -L ${GRAALVM_URL} -o /tmp/graalvm.tar.gz && tar -xvf /tmp/graalvm.tar.gz --strip-components=1 --directory /jdk/ \
   && rm -rf /tmp/graalvm.tar.gz \

@@ -1,9 +1,9 @@
-FROM        openjdk:8-jre-slim
+FROM        --platform=$TARGETOS/$TARGETARCH openjdk:8-slim
 
-LABEL       author="PanOkurka" maintainer="vedeni@atropol.net"
+LABEL       author="PanOkurka" maintainer="okurka@baby-cucumber.com"
 
 RUN apt-get update -y \
- && apt-get install -y curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 \
+ && apt-get install -y curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 \
  && useradd -d /home/container -m container
  
 USER container

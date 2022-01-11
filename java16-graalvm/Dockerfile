@@ -1,6 +1,6 @@
-FROM ubuntu:20.04
+FROM --platform=$TARGETOS/$TARGETARCH ubuntu:21.10
 
-LABEL       author="PanOkurka" maintainer="vedeni@atropol.eu"
+LABEL       author="PanOkurka" maintainer="okurka@baby-cucumber.com"
 
 ARG GRAALVM_URL=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.2.0/graalvm-ce-java16-linux-amd64-21.2.0.tar.gz
 ENV DEBIAN_FRONTEND=noninteractive 
